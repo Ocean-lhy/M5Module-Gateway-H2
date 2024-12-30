@@ -6,8 +6,8 @@ ESP Zigbee NCP (Network Co-Processor) 是一种网络协处理器模式，它将
 Module Gateway H2 支持搭配 ESP32 系列 Wi-Fi SoC 运行 ESP Zigbee NCP，该方案基于 ESP-IDF 和 ESP Zigbee SDK 构建，使用了Zigbee Home Automation标准协议。
 
 你需要准备：
-- M5Module-Gateway H2（作为 NCP）
-- M5Stack CoreS3（作为 Host）
+- M5Module-Gateway H2（作为 NCP）![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
+- M5Stack CoreS3（作为 Host）![M5Stack-CoreS3](https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp)
 - Type-C 数据线
 - ESP-IDF 环境
 
@@ -79,6 +79,3 @@ idf.py -p /dev/ttyACM1 flash # 根据实际端口修改
 - NCP 端显示 Zigbee 协议栈初始化成功
 - Host 端显示与 NCP 连接成功
 - Zigbee 网络创建成功（Coordinator 模式）
-
-
-

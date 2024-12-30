@@ -5,8 +5,8 @@
 ## 准备工作
 
 ### 硬件要求
-- M5Stack Module Gateway H2
-- M5Stack USB Downloader
+- M5Stack Module Gateway H2![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
+- M5Stack USB Downloader![M5Stack-USB-Downloader](https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp)
 
 ### 软件环境
 1. Arduino IDE
@@ -151,18 +151,10 @@ void loop() {
 
 #### 使用步骤
 
-1. **准备工作**
-   - 将恒温器代码烧录到协调器Coordinator设备
-   - 将温度传感器代码烧录到终端设备End Device
-
-2. **运行流程**
-   - 协调器启动后会自动创建网络并等待设备加入
-   - 每 10 秒会打印一次当前温度信息
-
-3. **功能验证**
-   - 查看串口监视器中的温度数据
-   - 观察温度变化时的自动报告
-   - 检查配置信息是否正确接收
+1. 将恒温器代码烧录到协调器Coordinator设备
+2. 将温度传感器代码烧录到终端设备End Device
+3. 协调器启动后会自动创建网络并等待设备加入，每 10 秒会打印一次当前温度信息
+4. 查看串口监视器中的温度数据，观察温度变化时的自动报告，检查配置信息是否正确接收
 
 
 ### 2. Zigbee 温度传感器 (Zigbee/Zigbee_Temperature_Sensor)
@@ -257,14 +249,8 @@ void loop() {
 
 #### 使用步骤
 
-1. **准备工作**
-   - 确保协调器已经运行并创建网络
-   - 将温度传感器代码烧录到终端设备
-
-2. **运行流程**
-   - 设备启动后会自动搜索并加入网络
-   - 每秒读取一次温度数据
-   - 当温度变化超过1°C时自动上报
+1. 确保协调器已经运行并创建网络，将温度传感器代码烧录到终端设备
+2. 设备启动后会自动搜索并加入网络，每秒读取一次温度数据，当温度变化超过1°C时自动上报
 
 
 ### 3. Zigbee 网络扫描 (Zigbee/Zigbee_Scan_Networks)
@@ -371,12 +357,6 @@ void loop() {
 
 #### 使用步骤
 
-1. **准备工作**
-   - 确保周围有活跃的 Zigbee 网络
-   - 将扫描代码烧录到设备
-
-2. **运行流程**
-   - 设备启动后自动开始扫描
-   - 每次扫描完成后显示结果
-   - 自动开始下一轮扫描
+1. 确保周围有活跃的 Zigbee 网络，将扫描代码烧录到设备
+2. 设备启动后自动开始扫描，每次扫描完成后显示结果，并自动开始下一轮扫描
 

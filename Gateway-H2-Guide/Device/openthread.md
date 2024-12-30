@@ -5,8 +5,8 @@
 ## 准备工作
 
 ### 硬件要求
-- M5Stack Module Gateway H2
-- M5Stack USB Downloader
+- M5Stack Module Gateway H2![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
+- M5Stack USB Downloader![M5Stack-USB-Downloader](https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp)
 
 ### 软件环境
 1. Arduino IDE
@@ -47,8 +47,7 @@
 这个例程展示了如何建立一个完整的 Thread 网络，包含三种不同类型的节点。
 
 #### 2.1 Leader 节点 (LeaderNode)
-- 作为网络的第一个设备
-- 创建并管理 Thread 网络
+- 作为网络的第一个设备创建并管理 Thread 网络
 - 提供完整的网络数据集
 - 显示详细的网络信息：
   - 网络名称
@@ -60,14 +59,11 @@
   - 多播地址
 
 #### 2.2 Router 节点 (RouterNode)
-- 加入现有的 Thread 网络
-- 转发网络数据
-- 扩展网络覆盖范围
+- 加入现有的 Thread 网络，转发网络数据
 - 显示连接状态和网络信息
 
 #### 2.3 扩展路由器节点 (ExtendedRouterNode)
-- 支持更多的路由功能
-- 可以作为 Router 或 Child 运行
+- 支持更多的路由功能，可以作为 Router 或 Child 运行
 - 提供网络诊断信息
 
 ### 3. 网络扫描 (ThreadScan)
@@ -86,24 +82,7 @@
   - 显示版本信息
 - 支持持续扫描模式
 
-### 4. CoAP 通信示例 (COAP)
-
-这个例程展示了如何使用 CoAP 协议进行设备间通信。
-
-#### 4.1 CoAP 开关 (coap_switch)
-- 使用 BOOT 按钮控制
-- 通过 CoAP 发送控制命令
-- 支持多播通信
-- LED 指示当前状态
-- 自动重连机制
-
-#### 4.2 CoAP 灯 (coap_lamp)
-- 创建 CoAP 资源
-- 响应 CoAP 请求
-- LED 渐变效果
-- 状态反馈机制
-
-### 5. CLI 控制台 (SimpleCLI)
+### 4. CLI 控制台 (SimpleCLI)
 
 这个例程提供了一个完整的 OpenThread CLI 控制台。
 
@@ -118,7 +97,7 @@
 - 支持命令历史
 - 方便调试和配置
 
-### 6. 接收回调 (onReceive)
+### 5. 接收回调 (onReceive)
 
 这个例程展示了如何使用回调函数处理 CLI 响应。
 
@@ -127,33 +106,3 @@
 - 自定义响应处理
 - 状态监控
 - 支持异步处理
-
-## 使用建议
-
-1. **开发顺序**
-   - 从 SimpleNode 开始熟悉基本操作
-   - 使用 ThreadScan 了解网络环境
-   - 通过 SimpleThreadNetwork 构建完整网络
-   - 使用 COAP 例程开发实际应用
-
-2. **调试技巧**
-   - 使用 SimpleCLI 进行交互式调试
-   - 通过 onReceive 例程监控网络状态
-
-## 常见问题
-
-1. **网络连接问题**
-   - 确保所有节点使用相同的网络密钥
-   - 检查信道配置是否一致
-   - 验证节点角色是否正确
-
-2. **CoAP 通信问题**
-   - 确保设备在同一个网络中
-   - 检查 CoAP 资源名称是否匹配
-   - 验证多播地址配置
-
-3. **扫描问题**
-   - 确保周围有活跃的 Thread 网络
-   - 检查扫描超时设置
-   - 验证节点状态是否正确
-

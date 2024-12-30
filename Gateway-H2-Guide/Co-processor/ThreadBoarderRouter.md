@@ -4,9 +4,9 @@
 Module Gateway H2 支持搭配ESP32系列 Wi-Fi SoC 运行 ESP Thread Boarder Router SDK，该SDK构建基于ESP-IDF和OpenThread，将Thread网络运行在H2上，H2通过串口与主处理器通信。
 
 你需要准备：
-- M5Module-Gateway H2
-- M5Stack CoreS3 / M5Stack Core2 / M5Stack Core
-- Type-C 数据线
+- M5Module-Gateway H2 ![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
+- M5Stack CoreS3 / M5Stack Core2 / M5Stack Core![M5Stack-CoreS3](https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp)
+- Type-C 数据线![M5Stack-USB-Downloader](https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp)
 - ESP-IDF 环境
 
 ## 1. 安装 ESP-IDF

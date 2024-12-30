@@ -4,8 +4,8 @@ ESP Zigbee Gateway 是一个基于 ESP32 系列 Wi-Fi SoC 和 ESP32-H2 802.15.4 
 
 ## 硬件要求
 
-- M5Module-Gateway H2（作为 RCP）
-- M5Stack CoreS3（作为 Host）
+- M5Module-Gateway H2（作为 RCP）![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
+- M5Stack CoreS3（作为 Host）![M5Stack-CoreS3](https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp)
 - Type-C 数据线
 - ESP-IDF 环境
 
@@ -52,12 +52,16 @@ idf.py menuconfig
 ```
 
 在 menuconfig 中配置：
-- Component config → ESP Zigbee Gateway
-  - UART Configuration
-    - UART TX Pin: 35
-    - UART RX Pin: 17
-  - Wi-Fi Configuration
-    - 配置 Wi-Fi SSID 和密码
+- ESP Zigbee gateway rcp update
+  - [*] Update RCP automatically
+  - Board Configuration
+    - Pin to RCP reset: 7
+    - Pin to RCP boot: 18
+    - Pin to RCP TX: 10
+    - Pin to RCP RX: 17
+- Example Connection Configuration
+  - WiFi SSID
+  - WiFi Password
 
 ### 4.2 编译和烧录
 ```bash
@@ -78,22 +82,3 @@ idf.py flash # 根据实际端口修改
 - Zigbee 网络创建成功
 - 网络开放允许设备加入
 
-## 6. Gateway 功能
-
-1. **自动更新 RCP**
-   - Gateway 固件包含可更新的 RCP 镜像
-   - 在版本不匹配或 RCP 失败时自动更新
-
-2. **网络管理**
-   - 自动创建 Zigbee 网络
-   - 支持设备入网管理
-   - 可配置网络参数（PAN ID、信道等）
-
-3. **Wi-Fi 连接**
-   - 支持连接到现有 Wi-Fi 网络
-   - 提供网络共存机制
-
-4. **设备管理**
-   - 支持多个 Zigbee 终端设备接入
-   - 提供设备状态监控
-   - 支持设备数据转发
