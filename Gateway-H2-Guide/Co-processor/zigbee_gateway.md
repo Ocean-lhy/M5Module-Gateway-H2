@@ -4,8 +4,12 @@ ESP Zigbee Gateway 是一个基于 ESP32 系列 Wi-Fi SoC 和 ESP32-H2 802.15.4 
 
 ## 硬件要求
 
-- M5Module-Gateway H2（作为 RCP）![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
-- M5Stack CoreS3（作为 Host）![M5Stack-CoreS3](https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp)
+- M5Module-Gateway H2（作为 RCP）
+
+  <img src="../images/M5Module-Gateway-H2.png" alt="M5Module-Gateway-H2" style="width: 200px;">
+- M5Stack CoreS3（作为 Host）
+
+   <img src="https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp" alt="M5Stack-CoreS3" style="width: 200px;">
 - Type-C 数据线
 - ESP-IDF 环境
 
@@ -59,9 +63,16 @@ idf.py menuconfig
     - Pin to RCP boot: 18
     - Pin to RCP TX: 10
     - Pin to RCP RX: 17
+
+  <div align=center><img src="../images/zigbee_gateway_menuconfig_2.png" alt="zigbee_gateway_menuconfig_2" style="width: 300px;">
+
+  <div align=center><img src="../images/zigbee_gateway_menuconfig.png" alt="zigbee_gateway_menuconfig" style="width: 300px;"></div>
+
 - Example Connection Configuration
   - WiFi SSID
   - WiFi Password
+  
+  <div align=center><img src="../images/ThreadBoarderRouter-menuconfig.png" alt="ThreadBoarderRouter-menuconfig" style="width: 300px;"></div>
 
 ### 4.2 编译和烧录
 ```bash
@@ -82,3 +93,4 @@ idf.py flash # 根据实际端口修改
 - Zigbee 网络创建成功
 - 网络开放允许设备加入
 
+<div align=center><img src="../images/zigbee_gateway_monitor.png" alt="zigbee_gateway_monitor" style="width: 800px;"></div>

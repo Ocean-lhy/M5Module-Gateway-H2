@@ -4,9 +4,13 @@
 Module Gateway H2 支持搭配ESP32系列 Wi-Fi SoC 运行 ESP Thread Boarder Router SDK，该SDK构建基于ESP-IDF和OpenThread，将Thread网络运行在H2上，H2通过串口与主处理器通信。
 
 你需要准备：
-- M5Module-Gateway H2 ![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
-- M5Stack CoreS3 / M5Stack Core2 / M5Stack Core![M5Stack-CoreS3](https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp)
-- Type-C 数据线![M5Stack-USB-Downloader](https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp)
+- M5Module-Gateway H2 
+
+  <img src="../images/M5Module-Gateway-H2.png" alt="M5Module-Gateway-H2" style="width: 200px;">
+- M5Stack CoreS3 / M5Stack Core2 / M5Stack Core
+
+  <img src="https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp" alt="M5Stack-CoreS3" style="width: 200px;">
+- Type-C 数据线
 - ESP-IDF 环境
 
 ## 1. 安装 ESP-IDF
@@ -54,8 +58,10 @@ idf.py set-target esp32
 idf.py menuconfig
 ```
 在 menuconfig 中配置：
-  - Wi-Fi Configuration
+  - Example Connection Configuration
     - 配置 Wi-Fi SSID 和密码
+
+<div align=center><img src="../images/ThreadBoarderRouter-menuconfig.png" alt="ThreadBoarderRouter-menuconfig" style="width: 400px;"></div>
 
 编译烧录固件
 ```bash
@@ -71,6 +77,29 @@ idf.py flash # 根据实际端口修改
 3. `factoryreset`按钮
 4. Border router web server网址
 
+<div align=center><img src="../images/ThreadBoarderRouter-display.png" alt="ThreadBoarderRouter-display" style="width: 200px;"></div>
+
 在m5stack的屏幕上点击`generate epskc`按钮，设备将生成一个epskc，并显示在屏幕上。
 
 在局域网内，使用浏览器访问Border router web server网址，可以查看Thread网络信息。
+
+<div align=center><img src="../images/ThreadBoarderRouter-web.png" alt="ThreadBoarderRouter-web" style="width: 700px;"></div>
+
+# 5. 测试
+使用一个ESP32H2(Module Gateway H2)或ESP32C6(M5NanoC6)，烧录[openthread](../Device/openthread.md)的SimpleCLI例程，连接到Thread网络，查看Thread网络信息。
+
+1. 在ThreadBoarderRouter的后台输入`networkkey`、`panid`、`channel`，获取Thread网络的网络密钥、panid和channel。
+2. 在SimpleCLI例程中输入配置命令并启动Thread网络
+```bash
+networkkey <networkkey>
+panid <panid>
+channel <channel>
+ifconfig up
+thread start
+```
+3. 在SimpleCLI后台输入`state`，查看Thread网络状态，如果作为child/router连接上网络，则Thread网络连接成功。如果作为leader成立网络，则配置可能有误。
+4. 在SimpleCLI后台输入`parent`，查看Thread网络的父节点；输入`extaddr`，查看此节点的扩展地址。
+5. 在ThreadBoarderRouter的后台输入`extaddr`，查看此节点的扩展地址，应与SimpleCLI例程中的`parent extaddr`一致。
+6. 在ThreadBoarderRouter的后台输入`neighbor table`，查看Thread网络的邻居节点，应包含SimpleCLI例程的节点。
+
+<div align=center><img src="../images/openthread_monitor.png" alt="openthread_monitor" style="width: 700px;"></div>

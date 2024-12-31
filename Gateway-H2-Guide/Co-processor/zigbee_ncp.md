@@ -6,8 +6,12 @@ ESP Zigbee NCP (Network Co-Processor) 是一种网络协处理器模式，它将
 Module Gateway H2 支持搭配 ESP32 系列 Wi-Fi SoC 运行 ESP Zigbee NCP，该方案基于 ESP-IDF 和 ESP Zigbee SDK 构建，使用了Zigbee Home Automation标准协议。
 
 你需要准备：
-- M5Module-Gateway H2（作为 NCP）![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
-- M5Stack CoreS3（作为 Host）![M5Stack-CoreS3](https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp)
+- M5Module-Gateway H2（作为 NCP）
+
+  <img src="../images/M5Module-Gateway-H2.png" alt="M5Module-Gateway-H2" style="width: 200px;">
+- M5Stack CoreS3（作为 Host）
+
+  <img src="https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-c464672f-1f10-4935-a168-ee4e64f62f70.webp" alt="M5Stack-CoreS3" style="width: 200px;">
 - Type-C 数据线
 - ESP-IDF 环境
 
@@ -39,8 +43,13 @@ idf.py menuconfig
 - Component config → Zigbee Network Co-processor
   - UART TX Pin: 24
   - UART RX Pin: 23
+
+  <div align=center><img src="../images/zigbee_ncp_menuconfig.png" alt="zigbee_ncp_menuconfig" style="width: 500px;"></div>
+
 - Component config → ESP Zigbee → Configure the Zigbee device type
   - Zigbee Coordinator or Router device # or Zigbee End Device
+
+  <div align=center><img src="../images/zigbee_ncp_menuconfig_2.png" alt="zigbee_ncp_menuconfig_2" style="width: 500px;"></div>
 
 ### 3.2 编译和烧录
 ```bash
@@ -60,8 +69,10 @@ idf.py menuconfig
 
 在 menuconfig 中配置：
 - Component config → Zigbee NCP Host
-  - UART TX Pin: 35
-  - UART RX Pin: 17
+  - UART TX Pin: 17
+  - UART RX Pin: 10
+
+  <div align=center><img src="../images/zigbee_host_menuconfig.png" alt="zigbee_host_menuconfig" style="width: 400px;"></div>
 
 ### 4.2 编译和烧录
 ```bash
@@ -79,3 +90,5 @@ idf.py -p /dev/ttyACM1 flash # 根据实际端口修改
 - NCP 端显示 Zigbee 协议栈初始化成功
 - Host 端显示与 NCP 连接成功
 - Zigbee 网络创建成功（Coordinator 模式）
+
+  <div align=center><img src="../images/zigbee_ncp_monitor.png" alt="zigbee_ncp_monitor" style="width: 600px;"></div>

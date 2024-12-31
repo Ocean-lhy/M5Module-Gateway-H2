@@ -5,8 +5,12 @@
 ## 准备工作
 
 ### 硬件要求
-- M5Stack Module Gateway H2![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
-- M5Stack USB Downloader![M5Stack-USB-Downloader](https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp)
+- M5Stack Module Gateway H2
+
+  <img src="../images/M5Module-Gateway-H2.png" alt="M5Module-Gateway-H2" style="width: 200px;">
+- M5Stack USB Downloader
+
+  <img src="https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp" alt="M5Stack-USB-Downloader" style="width: 200px;">
 
 ### 软件环境
 1. Arduino IDE
@@ -24,6 +28,8 @@
 8. 设备将自动启动并尝试加入网络
 9. 通过串口监视器查看网络状态
 
+<div align=center><img src="../images/openthread_menuconfig.png" alt="openthread_menuconfig" style="width: 400px;"></div  >
+
 ## 例程说明
 
 ### 1. 简单节点 (SimpleNode)
@@ -31,7 +37,7 @@
 这个例程展示了如何创建一个基本的 Thread 节点。
 
 #### 功能说明
-- 自动启动并加入 Thread 网络
+- 自动启动并加入 Thread 网络。没有对应的Thread网络时，启动为Leader节点。
 - 使用默认网络配置：
   - 网络名称：OpenThread-ESP
   - 网络前缀：fd00:db8:a0:0::/64
@@ -41,6 +47,8 @@
   - 网络密钥：00112233445566778899aabbccddeeff
 - 每5秒显示一次节点状态
 - 支持从 NVS 加载已保存的网络配置
+
+<div align=center><img src="../images/openthread_simple_node_monitor.png" alt="openthread_simple_node_monitor" style="width: 500px;"></div>
 
 ### 2. Thread 网络 (SimpleThreadNetwork)
 
@@ -58,13 +66,19 @@
   - IP 地址
   - 多播地址
 
+<div align=center><img src="../images/openthread_leader_node_monitor.png" alt="openthread_leader_node_monitor" style="width: 500px;"></div>
+
 #### 2.2 Router 节点 (RouterNode)
 - 加入现有的 Thread 网络，转发网络数据
 - 显示连接状态和网络信息
 
+<div align=center><img src="../images/openthread_router_node_monitor.png" alt="openthread_router_node_monitor" style="width: 500px;"></div>
+
 #### 2.3 扩展路由器节点 (ExtendedRouterNode)
 - 支持更多的路由功能，可以作为 Router 或 Child 运行
 - 提供网络诊断信息
+
+<div align=center><img src="../images/openthread_extended_router_node_monitor.png" alt="openthread_extended_router_node_monitor" style="width: 500px;"></div>
 
 ### 3. 网络扫描 (ThreadScan)
 
@@ -81,6 +95,8 @@
   - 显示 RLOC16
   - 显示版本信息
 - 支持持续扫描模式
+
+<div align=center><img src="../images/openthread_scan_monitor.png" alt="openthread_scan_monitor" style="width: 500px;"></div>
 
 ### 4. CLI 控制台 (SimpleCLI)
 

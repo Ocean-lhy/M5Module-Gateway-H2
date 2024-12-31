@@ -5,8 +5,12 @@
 ## 准备工作
 
 ### 硬件要求
-- M5Stack Module Gateway H2![M5Module-Gateway-H2](../images/M5Module-Gateway-H2.png)
-- M5Stack USB Downloader![M5Stack-USB-Downloader](https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp)
+- M5Stack Module Gateway H2
+
+  <img src="../images/M5Module-Gateway-H2.png" alt="M5Module-Gateway-H2" style="width: 200px;">
+- M5Stack USB Downloader
+
+  <img src="https://static-cdn.m5stack.com/resource/docs/products/tool/usb_downloader/usb_downloader_01.webp" alt="M5Stack-USB-Downloader" style="width: 200px;">
 
 ### 软件环境
 1. Arduino IDE
@@ -48,7 +52,7 @@
     rcp_fw,     data, spiffs,  0x1ef000,0x1000,
     coredump,   data, coredump,0x1f0000,0x10000,
     ```
-    - 3.4 reload board data
+    - 3.4 点击reload board data
 
 ## 例程说明
 
@@ -70,10 +74,13 @@
 
 Arduino IDE 工具菜单配置：
 - 选择正确的开发板：`Tools -> Board: ESP32H2 Dev Module`
+- 选择开启擦除：`Tools -> Erase All Flash Before Sketch Upload: Enable` (不开启可能导致连接失败)
 - 选择flash大小：`Tools -> Flash Size: 2MB`
 - 选择协调器模式：`Tools -> Zigbee mode: Zigbee ZCZR (coordinator/router)`
 - 选择 Zigbee 分区方案：`Tools -> Partition Scheme: Zigbee 2MB with spiffs`
 - 选择正确的串口：`Tools -> Port`
+
+<div align=center><img src="../images/zigbee_thermostat_menuconfig.png" alt="zigbee_thermostat_menuconfig" style="width: 300px;"></div>
 
 #### 代码示例 (Copy from the official routine)
 
@@ -143,6 +150,8 @@ void loop() {
     static uint32_t last_print = 0;
     if (millis() - last_print > 10000) {
         last_print = millis();
+        // Set reporting interval for temperature sensor
+        zbThermostat.setTemperatureReporting(0, 10, 2);
         int temp_percent = (int)((sensor_temp - sensor_min_temp) / (sensor_max_temp - sensor_min_temp) * 100);
         Serial.printf("Loop temperature info: %.2f°C (%d %%)\n", sensor_temp, temp_percent);
     }
@@ -171,8 +180,11 @@ void loop() {
 
 Arduino IDE 工具菜单配置：
 - 选择正确的开发板：`Tools -> Board`
+- 选择开启擦除：`Tools -> Erase All Flash Before Sketch Upload: Enable` (不开启可能导致连接失败)
 - 选择终端设备模式：`Tools -> Zigbee mode: Zigbee ED (end device)`
 - 选择 Zigbee 分区方案：`Tools -> Partition Scheme: Zigbee 2MB with spiffs`
+
+<div align=center><img src="../images/zigbee_temperature_sensor_menuconfig.png" alt="zigbee_temperature_sensor_menuconfig" style="width: 300px;"></div>
 
 #### 代码示例 (Copy from the official routine)
 
@@ -252,6 +264,7 @@ void loop() {
 1. 确保协调器已经运行并创建网络，将温度传感器代码烧录到终端设备
 2. 设备启动后会自动搜索并加入网络，每秒读取一次温度数据，当温度变化超过1°C时自动上报
 
+<div align=center><img src="../images/zigbee_temperature_sensor_monitor.png" alt="zigbee_temperature_sensor_monitor" style="width: 800px;"></div>
 
 ### 3. Zigbee 网络扫描 (Zigbee/Zigbee_Scan_Networks)
 
@@ -341,17 +354,17 @@ void loop() {
     if (ZigbeeScanStatus < 0) {  // it is busy scanning or got an error
         if (ZigbeeScanStatus == ZB_SCAN_FAILED) {
         Serial.println("Zigbee scan has failed. Starting again.");
+        delay(1000);
         Zigbee.scanNetworks();
         }
+        delay(100);
         // other option is status ZB_SCAN_RUNNING - just wait.
     } else {  // Found Zero or more Wireless Networks
         printScannedNetworks(ZigbeeScanStatus);
+        delay(1000);
         Zigbee.scanNetworks();  // start over...
     }
-
     // Loop can do something else...
-    delay(500);
-    Serial.println("Loop running...");
 }
 ```
 
@@ -360,3 +373,4 @@ void loop() {
 1. 确保周围有活跃的 Zigbee 网络，将扫描代码烧录到设备
 2. 设备启动后自动开始扫描，每次扫描完成后显示结果，并自动开始下一轮扫描
 
+<div align=center><img src="../images/zigbee_scan_networks_monitor.png" alt="zigbee_scan_networks_monitor" style="width: 700px;"></div>
