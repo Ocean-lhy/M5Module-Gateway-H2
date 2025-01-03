@@ -77,7 +77,7 @@ idf.py flash # 根据实际端口修改
 3. `factoryreset`按钮
 4. Border router web server网址
 
-<div align=center><img src="../images/ThreadBoarderRouter-display.png" alt="ThreadBoarderRouter-display" style="width: 200px;"></div>
+<div align=center><img src="../images/ThreadBoarderRouter-display.gif" alt="ThreadBoarderRouter-display" style="width: 400px;"></div>
 
 在m5stack的屏幕上点击`generate epskc`按钮，设备将生成一个epskc，并显示在屏幕上。
 
