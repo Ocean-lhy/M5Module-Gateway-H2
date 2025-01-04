@@ -43,7 +43,7 @@ git clone https://github.com/Ocean-lhy/esp-thread-br.git
 git checkout demo_for_core_s3_test
 cd examples/thread_border_router_credential_sharing
 idf.py set-target esp32s3
-# core2
+# core2 v1.0和v1.1的电源管理芯片分别为AXP192和AXP2101，需要在menuconfig中配置
 git checkout demo_for_core_2_test
 cd examples/thread_border_router_credential_sharing
 idf.py set-target esp32
@@ -84,6 +84,8 @@ idf.py flash # 根据实际端口修改
 在局域网内，使用浏览器访问Border router web server网址，可以查看Thread网络信息。
 
 <div align=center><img src="../images/ThreadBoarderRouter-web.png" alt="ThreadBoarderRouter-web" style="width: 700px;"></div>
+
+如果想修改连接的WIFI可以用串口连接指令界面，输入指令`wifi -s SSID -p PASSWORD`，然后重启设备。
 
 # 5. 测试
 使用一个ESP32H2(Module Gateway H2)或ESP32C6(M5NanoC6)，烧录[openthread](../Device/openthread.md)的SimpleCLI例程，连接到Thread网络，查看Thread网络信息。
