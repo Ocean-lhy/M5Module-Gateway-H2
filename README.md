@@ -1,48 +1,19 @@
-# Product Name
+# Module Gateway H2
 
 ## Overview
 
-### SKU:xxx
+### SKU:M141
 
-Description of the product
-
-## Related Link
-
-- [Document & Datasheet](https://docs.m5stack.com/en/unit/product_Link)
-
-## Required Libraries:
-
-- [Adafruit_BMP280_Library](https://github.com/adafruit/Required_Libraries_Link)
-
-## License
-
-- [Product Name- MIT](LICENSE)
-
-## Remaining steps(Editorial Staff Look,After following the steps, remember to delete all the content below)
-
-1. Change [clang format check path](./.github/workflows/clang-format-check.yml#L9-L15).
-2. Add License content to [LICENSE](/LICENSE).
-3. Change link on line 78 of [bug-report.yml](./.github/ISSUE_TEMPLATE/bug-report.yml#L78).
-
-```cpp
-Example
-# M5Unit-ENV
-
-## Overview
-
-### SKU:U001 & U001-B & U001-C
-
-Contains M5Stack-**UNIT ENV** series related case programs.ENV is an environmental sensor with integrated SHT30 and QMP6988 internally to detect temperature, humidity, and atmospheric pressure data.
+The Module Gateway H2 is a stackable gateway development module based on the ESP32-H2-MINI-1 module, specifically designed for the M5 series hosts. It features a low-power, RISC-V-based 32-bit single-core MCU and supports ZigBee, Thread, and the Thread-based Matter interconnect protocol. The module integrates IEEE 802.15.4 wireless communication capabilities, enabling it to work with M5 hosts to build Matter over Thread end devices, facilitating interoperability across multiple ecosystems.
 
 ## Related Link
 
-- [Document & Datasheet](https://docs.m5stack.com/en/unit/envIII)
+- [Document & Datasheet]([https://docs.m5stack.com/en/unit/product_Link](https://docs.m5stack.com/en/module/Module%20Gateway%20H2))
 
 ## Required Libraries:
 
-- [Adafruit_BMP280_Library](https://github.com/adafruit/Adafruit_BMP280_Library)
+- [esp-thread-br]([https://github.com/adafruit/Required_Libraries_Link](https://github.com/espressif/esp-thread-br))
 
 ## License
 
-- [M5Unit-ENV - MIT](LICENSE)
-```
+- [Product Module Gateway H2 MIT](LICENSE)
