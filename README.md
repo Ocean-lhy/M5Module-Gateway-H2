@@ -8,11 +8,11 @@ The Module Gateway H2 is a stackable gateway development module based on the ESP
 
 ## Related Link
 
-- [Document & Datasheet]([https://docs.m5stack.com/en/unit/product_Link](https://docs.m5stack.com/en/module/Module%20Gateway%20H2))
+- [https://docs.m5stack.com/en/unit/product_Link](https://docs.m5stack.com/en/module/Module%20Gateway%20H2)
 
 ## Required Libraries:
 
-- [esp-thread-br]([https://github.com/adafruit/Required_Libraries_Link](https://github.com/espressif/esp-thread-br))
+- [esp-thread-br](https://github.com/espressif/esp-thread-br)
 
 ## License
 
